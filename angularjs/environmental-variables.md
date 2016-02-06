@@ -1,21 +1,49 @@
-Setting up Environment variables For AngularJS
+# Environment Variables For AngularJS
+
+When it came time to setup deploys for our AngularJS application, we had a few areas in our Services that had hard-coded API keys into the application. A lot of guides online have different ways of incorporating ng-constant into the build process. This particular setup is based on (onefootball's)[onefootball] guide, and mirrors closely to how some server side frameworks have handled their environmental variables.
+
+## Intended Usage
+
+I want to have a nice config file, that lists all my environment specific settings, like
+```json
+// in /config/config.json
+{
+    "business": {
+        "url": "http://tommylee.co"
+    }
+}
 
 
-To add environment detection, we're going to use Angular constants to set the path in.
+// in /config/config.production.json
+{
+    "business": {
+        "url": "http://frshlns.com"
+    }
+}
+```
+ then have the ability to inject the configuration into places where I need it. 
+```
+var app = angular.module('brandtinker.businessFactory',['config']);
 
-This is based on 
+function BusinessFactory($http, $q, ENV) {
+  var url = ENV.business.url;
+  ...
+}
+```
 
-In this Setup, we want to have an ENV variable to access all the different types of environment variables for us.
+## Requirements
+ - An AngularJS Application
+ - A (Gruntfile)[gruntjs] that works
 
-
-Let's assume you have a config folder, to set up initial configurations of your app
-
+### Folder Structure
+The project folders would be set up so that we have a separate config folder to hold all of the private information:
 
 /app
 /config
+/Gruntfile.js
 
 
-In this config folder, we'll have the following files
+In this config folder, we'll have the following files. These files represent the different environments we want.
 
 
 ./config.json
@@ -23,12 +51,14 @@ In this config folder, we'll have the following files
 ./config.development.json
 ./config.staging.json
 
-install grunt-ng-constant to your local project directory
-``` npm install grunt-ng-constant --save-dev ```
+## Installation Steps
+1. Install grunt-ng-constant and lodash to your local project directory
+``` npm install grunt-ng-constant lodash --save-dev ```
 
-Add grunt-ng-constants to your grunt-jit, so when grunt runs, it knows to use constants.
+2. (optional) If you're using grunt-jit:
+   Add grunt-ng-constants to your grunt-jit.
 
-```
+```js
 require('jit-grunt')(grunt, {
     useminPrepare: 'grunt-usemin',
     ngtemplates: 'grunt-angular-templates',
@@ -36,9 +66,9 @@ require('jit-grunt')(grunt, {
     ngconstant: 'grunt-ng-constant'
 });
 ```
-include this detection of grunt-files method into your Gruntfile.js. This should be at or near the top of the file.
+3. We need to Add the Configuration JSON files to the Gruntfile. Add these lines to your Gruntfile.js. This should be at or near the top of the file. If you're Gruntfile is not at the root of your project, adjust conf1 and conf2 to match. lodash is included to merge both JSON files together
 
-```
+```js
 var _ = require('lodash');
 
     // Load the config file matching the 'profile' parameter, returns the default config + values from that file.
@@ -56,10 +86,10 @@ var _ = require('lodash');
     };
 ```
 
-Add the following grunt task inside your grunt.initConfig.
-This sets up the configurations to read the buildConfig and set it to an ENV file.
+4. Add the following grunt task inside your grunt.initConfig. This sets up the configurations to read the buildConfig and set it to an ENV file.
+   Replace the dest: path with you keep your scripts in your project. I only have a production and development environment.
 
-```
+```js
     ngconstant: {
       // Options for all targets
       options: {
@@ -70,7 +100,7 @@ This sets up the configurations to read the buildConfig and set it to an ENV fil
       // Environment targets
       development: {
         options: {
-          dest: '<%= yeoman.app %>/scripts/config.js'
+          dest: 'app/scripts/config.js'
         },
         constants: {
           ENV: buildConfig('development')
@@ -78,7 +108,7 @@ This sets up the configurations to read the buildConfig and set it to an ENV fil
       },
       production: {
         options: {
-          dest: '<%= yeoman.dist %>/scripts/config.js'
+          dest: 'app/scripts/config.js'
         },
         constants: {
           ENV: buildConfig('production')
@@ -87,9 +117,9 @@ This sets up the configurations to read the buildConfig and set it to an ENV fil
     },
 ```
 
-Now its time to set up your grunt:serve and grunt:build tasks to include the different production levels.
-To grunt Build
-```
+5. Finally, in the build and serve tasks of Grunt, we'll need to call ngconstant to our setup. grunt build is for production, and grunt serve for development. I would add this task as the first or second task to be run
+
+```js
 grunt.registerTask('build', [
     'clean:dist',
     'ngconstant:production',
@@ -98,8 +128,9 @@ grunt.registerTask('build', [
     ...
 ```
 
-And Grunt Serve
-```
+And for grunt serve
+
+```js
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
@@ -121,3 +152,10 @@ var app = angular.module('brandtinker.businessFactory',['config']);
 function BusinessFactory($http, $q, ENV) {
   var url = ENV.business.url;
 ```
+
+Credits goes to [onefootball] for this setup. 
+
+
+[onefootball]: http://onefootball.github.io/environment-dependent-configuration-files-with-angularjs-and-grunt/
+[gruntjs]: https://github.com/werk85/grunt-ng-constant
+[lodash]: https://lodash.com/
