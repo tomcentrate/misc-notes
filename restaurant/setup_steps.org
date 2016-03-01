@@ -1,0 +1,20 @@
+* TODO Transfer mysql passwords and root logins to new bitbucket account
+* TODO Setup POS Master
+** TODO Install Mysql Database
+** TODO Install Floreant POS
+** TODO Buy LPT Cards, Slim fit. 
+** Buy Card Swipers, 3-4
+** Test out Caller ID System to make sure it works
+
+* TODO Setup POS 2
+For these, have Jeremiah run through these with you
+** TODO Install Floreant POS 
+** TODO Update POS2 to Newest Versions of Window
+** TODO Backup system into a system Restore
+** TODO Add a Password to system, and write it down into documentation
+* TODO Setup POS 1
+For these, have Jeremiah run through these with you
+** TODO Update POS1 to Newest versions of windows 
+** TODO Install Floreant POS 
+** TODO Backup system into a system Restore
+** TODO Add a Password to system, and write it down into documentation

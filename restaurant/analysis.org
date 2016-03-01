@@ -1,0 +1,18 @@
+Restaurant Analysis Numbers.
+* Make it Accessible to public.
+* Can we group up the orders by day of the week? Like on a Week Day vs a Weekend?
+
+* Get Orders between Walkin, Pickup and Delivery
+
+* By Category
+
+* For Delivery Orders, get a heat map and the frequency of orders
+
+* What items sell and where do they sell.
+
+* Most Popular dishes stay.
+
+* If items are only ordered once a month, by five customers
+
+* Group by Year by Year
+
