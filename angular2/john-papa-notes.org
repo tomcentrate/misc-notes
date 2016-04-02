@@ -1,0 +1,174 @@
+Angular 1 to Angular 2 Differences
+* TODO 
+ng-controller -> @Component
+
+Define a component that you install from the angular library.
+
+
+Angular 1. ng-include, ng-controller, or a route to display things on screen..
+Controllers and ngINclude merge into a Component
+
+
+No more Controllers, no more Directives, just componenets
+
+all elements in html are going to be train-case, kabob-case choo chooooo
+* Decorators
+** @ is a decorator that provides metadata describing the component
+** Decorators when compiled create metadata
+ @Component({
+ selector: 'story-character' // Selection or element you'er looking for 
+templateUrl: // Url of the template youer' using
+styleUrl: //URL of the Style
+directive[CharacterComponent],
+providers[CharacterService]
+})
+
+
+* Component definition. Controlls a view.
+
+
+export class CharactersComponent implements OnInit {
+
+
+  constructor( private _speakerService: SpeakerService, 
+// Lifecyle Hook
+ ngOnInit() {
+ }
+}
+
+** Lifecycle Hooks in components
+
+** onChange, OnDestroy, onInit, hooks that are useful.
+
+** No Databind in constructor, why?
+
+** Should get data on init, not on construction, for unit test to be better.
+
+** in Type annotation
+@Component({
+ providers: // List all providers that are needed for this subcomponent.
+
+})
+Dependency Injection.. Things that need to be shared across the app should be
+Dependency Injection is nested.
+
+
+TODO:  Check the original.org to figure that out
+
+
+* Services:
+** Angular 1. Factories -> Services -> Providers? -> Constant -> Values WTF Is it
+Each of these are the same proivder?
+
+CREATES A SERVICE, then implement it.
+
+** Angular 2: Class
+
+Define a class to to define a service, 
+
+@Injectable()
+export class VehicleService() {
+  get something ? () => {
+  }
+}
+
+** Whenever you create a service, add an annotation @Injectable();
+
+** Provides something of value
+
+** Shared data or logi
+
+** Services are just a class
+** Data, logger, exception handler, or message service
+* Dependency Injection, Injecting Services into Injector
+Makes things modular, reusable.
+
+Angular, Has a component, inject into a service..
+** Angular 1: angular.module(app).service('VehicleService', VehicleService)
+** Angular 2: 
+
+Add to @Component Decorator via Provider route
+@component({ providers: [VehicleService]});
+
+** Angular2: Hierarchy based dependency injection
+
+** Angular1: Flat Dependency injection service.
+
+* 7 Key Comparisons
+
+** Components
+
+** Bootstrapping
+
+** Data Binding
+
+** Removal of Many Directives
+
+** Structural Directive
+
+** Services
+
+** Dependency Injection
+
+* Routing
+Routing allows our application to nagivate between different Components, passing parameters where needed
+
+** Angular 1$routeProviderWhen() -> RouteConfig(
+
+** Angular 1 <ng-view> -> <router-outlet>
+
+Angular 1 ng-href="": -> [routerLink]="linkParameters" 
+
+** Angular 1: $routeParams -> RouteParams
+
+** Routing Script
+Routing is a separate module
+Add the reference to router.dev.js
+Add <base href='/'> to index.html
+** Routing in 4 Steps
+*** Router Providers
+*** @RouteConfig
+or @Route
+in main route...
+ @RouteConfig([
+  { path: '/dashboard', name: 'Dashboard', component: DashboardComponent, useAsDefault: true },
+  { path: '/vehicles/...', name: 'Vehicles', component: VehiclesComponent },
+  { path: '/characters/...', name: 'Characters', component: CharactersComponent },
+])
+
+in vehicle Component
+@Component({
+  selector: 'story-vehicles-root',
+  template: `
+    <router-outlet></router-outlet>
+  `,
+  directives: [ROUTER_DIRECTIVES],
+  providers: [VehicleService]
+})
+@RouteConfig([
+  { path: '/', name: 'Vehicles', component: VehicleListComponent, useAsDefault: true },
+  { path: '/list/:id', name: 'Vehicles', component: VehicleListComponent},
+  { path: '/:id', name: 'Vehicle', component: VehicleComponent }
+])
+export class VehiclesComponent { }
+
+export class DashboardComponent
+export class VehiclesComponent
+export class CharactersComponent
+Could have some different conventions as this goes along
+*** <router-outlet>
+You can declare routing directives
+
+<router-outlet> is where the Component's Template will appear
+
+
+
+*** SOME_PROVIDERS <--- IS a BARREL OF STUFFFFFFFF
+
+Reuse stuff using barrels. 
+export const SOME_PROVIDERS = [
+ Service1,
+ Service2,
+ Service3,
+ Service4,
+]
