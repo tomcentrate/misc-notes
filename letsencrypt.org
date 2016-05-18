@@ -1,0 +1,7 @@
+Lets Encrypt
+
+Caveats: If your domain is running through cloudflare, you'll need to disable 
+the Cloudflare Activated before running Let's encrypt to work.
+
+
+TODO Add Cloudflare disabler calls to REST API and add to LetsEncrypt
