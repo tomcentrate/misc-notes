@@ -1,15 +1,19 @@
 Angular 1 to Angular 2 Differences
-* TODO 
+
+* Changes to Controllers
+We're changing a different way of defining a controller / directive, all unified as a component.
+
+Using the @Component Decorator
 ng-controller -> @Component
 
 Define a component that you install from the angular library.
 
 
-Angular 1. ng-include, ng-controller, or a route to display things on screen..
-Controllers and ngINclude merge into a Component
+** Angular 1. ng-include, ng-controller, or a route to display things on screen..
+** Angular 2: Controllers and ngINclude merge into a Component
 
 
-No more Controllers, no more Directives, just componenets
+No more Controllers, no more Directives, just components
 
 all elements in html are going to be train-case, kabob-case choo chooooo
 * Decorators
@@ -23,8 +27,7 @@ directive[CharacterComponent],
 providers[CharacterService]
 })
 
-
-* Component definition. Controlls a view.
+* Component definition. Controls a view.
 
 
 export class CharactersComponent implements OnInit {
@@ -41,8 +44,7 @@ export class CharactersComponent implements OnInit {
 ** onChange, OnDestroy, onInit, hooks that are useful.
 
 ** No Databind in constructor, why?
-
-** Should get data on init, not on construction, for unit test to be better.
+ Should get data on init, not on construction, for unit test to be better.
 
 ** in Type annotation
 @Component({
@@ -51,10 +53,6 @@ export class CharactersComponent implements OnInit {
 })
 Dependency Injection.. Things that need to be shared across the app should be
 Dependency Injection is nested.
-
-
-TODO:  Check the original.org to figure that out
-
 
 * Services:
 ** Angular 1. Factories -> Services -> Providers? -> Constant -> Values WTF Is it
@@ -90,9 +88,9 @@ Angular, Has a component, inject into a service..
 Add to @Component Decorator via Provider route
 @component({ providers: [VehicleService]});
 
-** Angular2: Hierarchy based dependency injection
+** Angular 2: Hierarchy based dependency injection
 
-** Angular1: Flat Dependency injection service.
+** Angular 1: Flat Dependency injection service.
 
 * 7 Key Comparisons
 
@@ -172,3 +170,26 @@ export const SOME_PROVIDERS = [
  Service3,
  Service4,
 ]
+* One way binding
+
+It replaces ng-bind, and it can bind to a property
+
+
+
+Can bind attributes, classes, style. 
+
+* Modern web issues
+
+App is a weird stuff
+
+* Event binding
+
+Binding replaces ng click ng bind
+
+With (click) and (bind)
+
+[Properties] goes up to the screen
+(Event) goes back to the model
+
+2 way binding is now [(ngModel)] to 2 way bind
+
