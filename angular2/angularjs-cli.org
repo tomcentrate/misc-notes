@@ -1,0 +1,8 @@
+Angular 2 CLI Starting out
+
+* Install the CLI Tool
+** run `sudo n latest` to install the newest node version
+** run `npm install -g npm` to update npm
+** `npm install -g angular-cli`
+* Starting a new Project
+** ` ng new project-name`

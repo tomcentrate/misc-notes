@@ -1,0 +1,8 @@
+Creating a new AMI Instance
+
+Migration Package Versions
+
+On old Server and New Server:
+
+ dpkg --get-selections | grep -v deinstall > installed_packages
+

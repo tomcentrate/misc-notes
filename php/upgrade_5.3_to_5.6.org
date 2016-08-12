@@ -1,0 +1,58 @@
+Some Stupid things to do to get PHP 5.3.x Code to Run on atleast PHP 5.6.x
+
+This is a list of things that you can do, but probably should not do to maintain projects
+that are still on PHP 5.3.
+
+I urge you to please re-examine your application and 'do the right thing', and fix up your apps.
+
+Some of these things are not really THAT bad, but still pretty bad.
+
+
+* Fixing or Re-enabling Globals
+
+The option to enable globals have been disabled completely in PHP 5.4.
+Use all the Superglobals ($_) instead. Access everything, like $_REQUEST['username'] and other goodies
+through the superglobals
+
+** The dirty hotfix:
+
+Use the extract method to move all variables out of the Superglobals into your project.
+Create a single file that gets included in all your files, like your autoloader, or a connection
+file, and add lines that look like:
+
+extract($_SERVER)
+extract($_REQUEST)
+extract($_FILES)
+extract($_SESSION)
+
+** Dirty Hotfix for $_FILES Superglobal:
+This has some minor changes, originally
+using the global version of a file uploaded, would add the temp file name to the $$filename
+
+Example: 
+
+Globals:
+$document;
+No Globals:
+$_FILES['document'];
+
+This has changed in some commands that take in a file path, since $document originally stored the path,
+
+Globals:
+Pre 5.3
+copy($document, $new_location);
+
+No Globals:
+copy($document['tmp_name'], $new_location)
+
+* session_register()
+
+This one is pretty easy. Instead of using session_register($variable), you modify the Superglobal instead
+
+PHP 5.3:
+$username = 'user';
+session_register($username);
+
+PHP 5.4:
+$_SESSION['username'] = 'user;
+

@@ -1,0 +1,5 @@
+Android Development with Scott Anderson
+
+Import Android
+Please use Global Settings instead of just using the Local Version. Differences in Builds Per user to user
+
