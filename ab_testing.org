@@ -1,0 +1,8 @@
+AB Testing Notes For the Average Joe.
+* Samples Sizes
+The bigger the change, the smaller the sample size.
+It's easier to determine 
+* Testing with No Baseline.
+Testing with No Baseline
+* Alternatives to AB Testing
+Bandit Testing - Apply a greedy algorithm.

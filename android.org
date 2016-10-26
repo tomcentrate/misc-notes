@@ -3,3 +3,26 @@ Android Development with Scott Anderson
 Import Android
 Please use Global Settings instead of just using the Local Version. Differences in Builds Per user to user
 
+* Multiple Screen Sizes:
+Just like in iOS, where you have the @1x, @2x, @3x screen resolutions, android has a similar version
+
+** Resolutions
+ldpi (low) ~120dpi
+mdpi (medium) ~160dpi
+hdpi (high) ~240dpi
+xhdpi (extra-high) ~320dpi
+xxhdpi (extra-extra-high) ~480dpi
+xxxhdpi (extra-extra-extra-high) ~640dpi
+
+* Key Takeaways
+- To avoid the pixel density issues on fragments: use stuff like wrap_content, match_parent, or dp unit. You can also declare scale independent sizes for texts, and rely on the user setting for this size. For accessibility, I recommend going this route.
+- No hard-coded pixels.
+- Add size dependent resources, have them nested in folders named based on their configuration qualifiers, e.g.  res/drawable-mdpi/hamburger-menu.png -
+ https://developer.android.com/guide/practices/screens_support.html#qualifiers
+- Create multiple layout folders, named in the form sw<N>-dp, usually:
+  layouts-sw320dp - Cell phone:
+  layouts-sw480dp - weird tablet size
+  layouts-sw600dp - 7” Tablet
+  layouts-sw720dp - 10” tablet.
+
+  sw stands for smallest width, so if any of these are missing, it’ll turn to the closest matching width I think.
