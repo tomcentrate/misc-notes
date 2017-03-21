@@ -1,0 +1,9 @@
+Getting Started on React
+* Setup
+** Setting up Development Environment
+I personally prefer to use it native. 
+*** Install NPM and Nodejs
+*** Install Linting and Syntax checkers, or use VSCode
+*** 
+** Setting up Chrome Tools
+** 
