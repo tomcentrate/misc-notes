@@ -1,0 +1,6 @@
+* NewRelic Synthetics Notes
+** Scripted Browser
+*** Taking Katalon Recorder and using selectors to get different items.
+We ran into some issues when it comes to getting selectors, and have to resort to using default XPATH selectors.
+*** Some Selectors aren't supported.
+- ValidateElementPresent and some other validatoins do not exist with the NewRelic translation layer.
