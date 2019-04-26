@@ -55,5 +55,5 @@ To match the second element, we can use the `[]` After the selector to select wh
   * Get Element By ID `//*[@id='name']`
   * Get Element By Class `//*[@contains(@class, 'foo')]`
   * Get Element with Attribute 'href'- `//*[@contains(@href, 'foo')]`
-  * Get the Third p element selected - `//p[3]`
+  * Get the Third p element selected - `//p[2]`
 
