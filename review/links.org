@@ -1,0 +1,2 @@
+* Tech Links
+** https://github.com/MaximAbramchuck/awesome-interview-questions

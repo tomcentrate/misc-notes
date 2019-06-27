@@ -1,0 +1,11 @@
+* Symfony 4 Notes
+
+
+- src - where all the PHP source code goes
+- bin - all the binstubs, where you run CLI tools
+- config
+ |----
+
+** Routing
+ Routing can be handled by a config/packages/routes.yaml file
+ Routes can also be setup using Annotations
