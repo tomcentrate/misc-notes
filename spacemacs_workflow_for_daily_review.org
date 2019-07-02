@@ -1,0 +1,69 @@
+#+TITLE: Spacemacs Frequently Used Shortcuts
+
+* Terminology
+  This is how to read the different shortcuts.
+** M - alt
+** C - ctrl
+** Spc - Spacebar
+** C-v = Ctrl+v
+* Basic Emacs Usage
+** Copy - ~M-w~
+** Paste - ~C-y~
+** Cut - ~C-w~
+* Capture Stuff
+** Copy Link of current file - ~C-c l~
+** Insert Link - ~C-c C-l~
+** Insert new Capture - ~Spc a o c~  
+* Timekeeping
+** Clock in - ~Spc m C o~
+* Clock Table Templates
+** [[https://orgmode.org/manual/The-clock-table.html][Documentation]] 
+** Summary of tasks done today
+#+BEGIN: clocktable :scope agenda-with-archives :block today :fileskip0 :stepskip0
+#+CAPTION: Clock summary at [2019-07-02 Tue 09:30], for Tuesday, July 02, 2019.
+| File | Headline         | Time   |
+|------+------------------+--------|
+|      | ALL *Total time* | *0:00* |
+#+END:
+** Summary of tasks done last week
+#+BEGIN: clocktable :scope agenda-with-archives :block lastweek :step day :fileskip0 :stepskip0
+
+Daily report: [2019-06-24 Mon]
+| File     | Headline                                  | Time   |      |
+|----------+-------------------------------------------+--------+------|
+|          | ALL *Total time*                          | *1:56* |      |
+|----------+-------------------------------------------+--------+------|
+| TODO.org | *File time*                               | *1:56* |      |
+|          | Tasks                                     | 1:56   |      |
+|          | \_  Code Review EBG-CR-5 Lindsay Email... |        | 1:56 |
+
+Daily report: [2019-06-25 Tue]
+| File | Headline         | Time   |
+|------+------------------+--------|
+|      | ALL *Total time* | *0:00* |
+
+Daily report: [2019-06-26 Wed]
+| File | Headline         | Time   |
+|------+------------------+--------|
+|      | ALL *Total time* | *0:00* |
+
+Daily report: [2019-06-27 Thu]
+| File | Headline         | Time   |
+|------+------------------+--------|
+|      | ALL *Total time* | *0:00* |
+
+Daily report: [2019-06-28 Fri]
+| File | Headline         | Time   |
+|------+------------------+--------|
+|      | ALL *Total time* | *0:00* |
+
+Daily report: [2019-06-29 Sat]
+| File | Headline         | Time   |
+|------+------------------+--------|
+|      | ALL *Total time* | *0:00* |
+
+Daily report: [2019-06-30 Sun]
+| File | Headline         | Time   |
+|------+------------------+--------|
+|      | ALL *Total time* | *0:00* |
+#+END:
