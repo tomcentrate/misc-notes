@@ -1,2 +1,19 @@
 * Tech Links
-** https://github.com/MaximAbramchuck/awesome-interview-questions
+** [[https://github.com/MaximAbramchuck/awesome-interview-questions][Awesome Review Questions]] :review:
+** [[https://jeffwilcox.blog/2019/06/scaling-25k/][Scaling from 2000 to 25000 Engineers]] :toberead:
+** [[https://righthello.com/sales-for-technical-founders/][Sales for Technical Fuonders]]  
+** [[https://www.infoq.com/presentations/Simple-Made-Easy][Simple Made Easy]] :tech:presentation:
+** [[http://www.inanzzz.com/index.php/post/su76/creating-apache-mysql-and-php-fpm-containers-for-a-web-application-with-docker-compose][Apache Docker-Composer Tutorial]] :docker:php:tutorial 
+** [[http://kosamari.com/notes/the-promise-of-a-burger-party][Promise Explanation: Burger Party]] 
+** [[http://eloquentjavascript.net/3rd_edition/][Eloquent Javascript]]
+** [[https://joshleeb.com/posts/rust-traits-and-trait-objects/][Traits in Rust]]
+** [[https://www.gnu.org/philosophy/right-to-read.html][Richard STallman Something or another]] 
+* Org Mode
+** [[https://github.com/Kungsgeten/org-brain][Org Brain Mode Shortcuts]] 
+* To Be Read Later
+** [[https://getpocket.com/explore/item/how-to-read-a-self-help-book-in-90-minutes?utm_source=pocket-newtab][How to Read self help in 90 minutes]]
+
+* React Links
+** [[https://medium.com/@stowball/a-dummys-guide-to-redux-and-thunk-in-react-d8904a7005d3#.bc5zs2sej][React Redux and Thunk]] 
+**  [[http://blog.slatepeak.com/build-a-react-redux-app-with-json-web-token-jwt-authentication/][React/Redux with JWT Authentication]] 
+** 
