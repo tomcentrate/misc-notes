@@ -14,8 +14,11 @@
 ** Copy Link of current file - ~C-c l~
 ** Insert Link - ~C-c C-l~
 ** Insert new Capture - ~Spc a o c~  
+** Insert New Journal ~Spc a o j~
 * Timekeeping
-** Clock in - ~Spc m C o~
+** Clock in - ~Spc m C i~
+** Clock out - ~Spc m C o~
+** Pomodoro - ~Spc m C p~
 * Clock Table Templates
 ** [[https://orgmode.org/manual/The-clock-table.html][Documentation]] 
 ** Summary of tasks done today

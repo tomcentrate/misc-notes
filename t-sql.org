@@ -1,0 +1,3 @@
+* T-SQL
+** Temporary Session Tables
+   # tables are the same as @Table Variables

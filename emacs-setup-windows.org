@@ -1,0 +1,16 @@
+* Configuring Spacemacs on Windows
+** Install Emacs
+   We used chocolatey to install this.
+
+   choco install emacs
+** Capture Template Command   
+*** Setup emacs to run as Daemon
+    Create a Shortcut that links to runemacs.exe startup daemon
+    ~C:\ProgramData\chocolatey\bin\runemacs.exe --daemon~
+    Make sure the startin is in the chocolatey bin folder. 
+    ~C:\ProgramData\chocolatey\bin~
+
+*** Create Template
+    Create a Shortcut that links to emacsclient with the following commands
+    ~C:\ProgramData\chocolatey\bin\emacsclientw.exe -n -a "" -e "(org-capture)"~
+** Setup 
