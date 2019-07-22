@@ -1,0 +1,15 @@
+* Custom Events
+  So In new relic, we can notify 
+
+  #+begin_src javascript
+// We call Newrelic whenever the login is correct.
+function handleOnLoadNotifySuccessfulLogin() {
+	var currentSearchParameters = window.location.search;
+	var needle = 'xid=login-success';
+	if(currentSearchParameters.search(needle) !== -1) {
+		newrelic.addPageAction('SuccessfulLoginFromThirdParty');
+	}
+
+}
+window.addEventListener("load", handleOnLoadNotifySuccessfulLogin, false);
+  #+end_src
